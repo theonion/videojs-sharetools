@@ -48,6 +48,7 @@
         if(settings.facebook) {
             var facebook = document.createElement('a');
             facebook.className = "fb";
+            facebook.target = "_blank";
             facebook.href = settings.facebook(settings);
             facebook.innerHTML = "<span>Facebook</span>";
             shareTool.appendChild(facebook);
@@ -55,6 +56,7 @@
         if(settings.twitter) {
             var twitter = document.createElement('a');
             twitter.className = "tw";
+            twitter.target = "_blank";
             twitter.href = settings.twitter(settings);
             twitter.innerHTML = "<span>Twitter</span>";
             shareTool.appendChild(twitter);
@@ -80,16 +82,25 @@
                 textArea.appendChild(document.createTextNode(settings.embed(settings)));
                 textArea.select();
             };
-
         }
 
         overlay.getElementsByClassName('close')[0].onclick = shareTools.teardown;
+        document.addEventListener('keyup', shareTools.keyUp, false);
         player.el().appendChild(overlay);
     };
 
+    shareTools.keyUp = function(e) {
+        if (e.keyCode === 27) {
+            shareTools.teardown();
+        }
+    };
+
     shareTools.teardown = function() {
-        var overlay = player.el().getElementsByClassName('sharetools-overlay')[0];
-        player.el().removeChild(overlay);
+        var overlays = player.el().getElementsByClassName('sharetools-overlay');
+        if (overlays.length > 0) {
+            document.removeEventListener('keyup', shareTools.keyUp);
+            player.el().removeChild(overlays[0]);
+        }
     };
 
   };

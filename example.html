@@ -36,7 +36,7 @@
   </video>
 
   <script>
-    videojs('vid1', {
+    var player = videojs('vid1', {
       plugins: {
         sharetools: {
             embed: function(settings) {
@@ -45,6 +45,7 @@
         }
       }
     });
+    player.volume(0);
   </script>
 
 </body>
