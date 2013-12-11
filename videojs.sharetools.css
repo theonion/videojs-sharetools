@@ -53,8 +53,8 @@
 
 		.sharetool > a:first-child::before { margin-left: 0; }
 
-		.sharetool > a[href="#tw"]::before { background-position: -64px 0 }
+		.sharetool > .tw::before { background-position: -64px 0 }
 
-		.sharetool > a[href="#em"]::before { background-position: -128px 0 }
+		.sharetool > .em::before { background-position: -128px 0 }
 
-		.sharetool > a[href="#fb"]::before { background-position: 0 }
+		.sharetool > .fb::before { background-position: 0 }

@@ -38,7 +38,11 @@
   <script>
     videojs('vid1', {
       plugins: {
-        sharetools: {}
+        sharetools: {
+            embed: function(settings) {
+                return "<div>some embed code</div>";
+            }
+        }
       }
     });
   </script>
