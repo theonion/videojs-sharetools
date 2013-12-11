@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Video.js sharetools Example</title>
+
+  <link href="//vjs.zencdn.net/4.3/video-js.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  <link href="videojs.sharetools.css" rel="stylesheet">
+  <style type="text/css">
+    #vid1 {
+      width: 75%;
+    }
+  </style>
+  <script type="text/javascript"> if (!window.console) console = {log: function() {}}; </script>
+
+  <!-- GENERATED LIST OF SOURCE FILES -->
+  <script src="//vjs.zencdn.net/4.3/video.js"></script>
+  <script src="videojs.sharetools.js"></script>
+  <script>
+      // Easy access to test Flash over HTML5. Add ?flash to URL
+      if (window.location.href.indexOf("?flash") !== -1) {
+        videojs.options.techOrder = ["flash"];
+      }
+  </script>
+</head>
+<body>
+  <p style="background-color:#eee; border: 1px solid #777; padding: 10px; font-size: .8em; line-height: 1.5em; font-family: Verdana, sans-serif;">This page shows you how to create, register and initialize a Video.js plugin.</p>
+
+  <video id="vid1" class="video-js vjs-default-skin" controls preload="auto"
+      poster="http://video-js.zencoder.com/oceans-clip.png" width="600" height="338">
+    <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4'>
+    <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm'>
+    <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg'>
+    <p>Video Playback Not Supported</p>
+  </video>
+
+  <script>
+    videojs('vid1', {
+      plugins: {
+        sharetools: {}
+      }
+    });
+  </script>
+
+</body>
+</html>
