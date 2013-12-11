@@ -42,7 +42,7 @@
         shareTools.open = true;
         var overlay = document.createElement("div");
         overlay.className = "sharetools-overlay";
-        overlay.innerHTML = '<div class="sharetool"></div><a href="#close" class="close"><span>Close</span></a>';
+        overlay.innerHTML = "<div class=\"sharetool\"></div><a href=\"#close\" class=\"close\"><span>Close</span></a>";
 
         var shareTool = overlay.getElementsByTagName("div")[0];
         if(settings.facebook) {
@@ -69,15 +69,18 @@
             shareTool.appendChild(embed);
 
             var embedDiv = document.createElement('div');
+
             embedDiv.className = "embedtool";
-            embedDiv.innerHTML = "<textarea>" + settings.embed(settings) + "</textarea>";
+            embedDiv.innerHTML = "<textarea class=\"textarea\"></textarea>";
             embedDiv.style.display = "none";
             overlay.appendChild(embedDiv);
 
             embed.onclick = function(e){
+                var textArea = embedDiv.children[0];
                 shareTool.style.display = "none";
                 embedDiv.style.display = "block";
-                embedDiv.getElementsByTagName('textarea')[0].select();
+                textArea.appendChild(document.createTextNode(settings.embed(settings)));
+                textArea.select();
             };
         }
 
