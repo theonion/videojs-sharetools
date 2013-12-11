@@ -45,7 +45,7 @@
         var overlay = document.createElement("div");
         overlay.className = "sharetools-overlay";
 
-        overlay.innerHTML = '<a href="#fb"><span>Facebook</span></a> <a href="#tw"><span>Twitter</span></a> <a href="#em"><span>Embed</span></a> <a href="#close" class="close"><span>Close</span></a>';
+        overlay.innerHTML = '<div class="sharetool"><a href="#fb"><span>Facebook</span></a> <a href="#tw"><span>Twitter</span></a> <a href="#em"><span>Embed</span></a></div> <a href="#close" class="close"><span>Close</span></a>';
 
         overlay.getElementsByClassName('close')[0].onclick = shareTools.teardown;
         player.el().appendChild(overlay);
