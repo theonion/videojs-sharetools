@@ -1,12 +1,11 @@
 .vjs-default-skin .vjs-sharetools-button::before {
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRFY2lt6+ztHSUrkZWYREpQwMPE////BQ4VvTfaSAAAAAh0Uk5T/////////wDeg71ZAAAAvUlEQVR42oSTSxLAIAhDI59y/xtXO0WxomWl5I0RRJiZsKYBqiLM+NoGGnDQGwGsWdaxJuiqR1egZMAgNHOwdvk/wIkZUIaYBxaAyabADOhHfokOJPpTiwMl000HwJYf0IGNQQd0pEUo6A68DsKlb3hqFGKOw9oBie2vAOmVAJ7UoEcLGskwAuGSks5cKPMItEadAf4Dah07QL22HGB4yzgHACqnn6X168mBqHOE2Piv3Mb4eUeSNJ4nvgUYACKqFzTMflr4AAAAAElFTkSuQmCC");
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: 16px 16px;
-    content: "";
-    height: 16px;
-    margin-top: 7px;
-    width: 16px; }
+    content: "Share";
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 30px;
+    margin-left: 10px;
+    text-transform: uppercase; }
 
 .vjs-default-skin .vjs-big-play-button {
 	margin: auto;
