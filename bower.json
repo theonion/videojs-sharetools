@@ -1,0 +1,32 @@
+{
+  "name": "videojs-sharetools",
+  "version": "0.1.0",
+  "homepage": "https://github.com/theonion/videojs-sharetools",
+  "authors": [
+    "Chris Sinchok <csinchok@theonion.com>",
+    "Shawn Cook <scook@theonion.com>"
+  ],
+  "description": "A share tool plugin for videojs",
+  "main": "videojs.sharetools.js",
+  "keywords": [
+    "video",
+    "videojs",
+    "share",
+    "sharetools",
+    "social",
+    "facebook",
+    "twitter"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "example.html"
+  ],
+  "dependencies": {
+    "videojs": "~4.4.2"
+  }
+}
