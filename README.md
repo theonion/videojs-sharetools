@@ -11,7 +11,7 @@ Include the plugin:
 ```
 
 Initialize it, and add your share urls:
-
+```
   plugins: {
     sharetools: {
       embed: function(settings) {
@@ -19,3 +19,4 @@ Initialize it, and add your share urls:
       }
     }
   }
+```
