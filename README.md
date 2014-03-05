@@ -12,11 +12,11 @@ Include the plugin:
 
 Initialize it, and add your share urls:
 ```
-  plugins: {
-    sharetools: {
-      embed: function(settings) {
-        return "<div>Whatever you want!</div>"
-      }
+plugins: {
+  sharetools: {
+    embed: function(settings) {
+      return "<div>Whatever you want!</div>"
     }
   }
+}
 ```
