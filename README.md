@@ -20,3 +20,9 @@ plugins: {
   }
 }
 ```
+
+###Options
+
+`facebook` a function that will get called with the `options` object passed to it.
+`twitter` a function that will get called with the `options` object passed to it.
+`embed` a function that will get called with the `options` object passed to it.

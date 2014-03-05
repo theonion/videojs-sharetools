@@ -58,6 +58,8 @@
 
 		.sharetool > .fb::before { background-position: 0 }
 
+a:not([href]) { cursor: pointer; }
+
 .embedtool {
     height: 120px;
     margin: auto;

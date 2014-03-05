@@ -14,7 +14,7 @@
   },
 
   defaults = {
-    shareUrl: document.location,
+    shareUrl: window.location,
     facebook: function(settings){
         return "https://www.facebook.com/sharer/sharer.php?u=" + settings.shareUrl;
     },
@@ -34,75 +34,77 @@
 
     shareButton.open = false;
     shareButton.onclick = function(e) {
-        shareTools.setup();
+      shareTools.setup();
     };
 
     shareTools.setup = function() {
-        player.pause();
-        shareTools.open = true;
-        var overlay = document.createElement("div");
-        overlay.className = "sharetools-overlay";
-        overlay.innerHTML = "<div class=\"sharetool\"></div><a href=\"#close\" class=\"close\"><span>Close</span></a>";
+      player.pause();
+      shareTools.open = true;
+      var overlay = document.createElement("div");
+      overlay.className = "sharetools-overlay";
+      overlay.innerHTML = "<div class=\"sharetool\"></div><a class=\"close\"></a>";
 
-        var shareTool = overlay.getElementsByTagName("div")[0];
-        if(settings.facebook) {
-            var facebook = document.createElement('a');
-            facebook.className = "fb";
-            facebook.target = "_blank";
-            facebook.href = settings.facebook(settings);
-            facebook.innerHTML = "<span>Facebook</span>";
-            shareTool.appendChild(facebook);
-        }
-        if(settings.twitter) {
-            var twitter = document.createElement('a');
-            twitter.className = "tw";
-            twitter.target = "_blank";
-            twitter.href = settings.twitter(settings);
-            twitter.innerHTML = "<span>Twitter</span>";
-            shareTool.appendChild(twitter);
-        }
-        if(settings.embed) {
-            var embed = document.createElement('a');
-            embed.className = "em";
-            embed.href = "#em";
-            embed.innerHTML = "<span>Embed</span>";
-            shareTool.appendChild(embed);
+      var shareTool = overlay.getElementsByTagName("div")[0];
+      if(settings.facebook) {
+        var facebook = document.createElement('a');
+        facebook.className = "fb";
+        facebook.target = "_blank";
+        facebook.href = settings.facebook(settings);
+        facebook.innerHTML = "<span>Facebook</span>";
+        shareTool.appendChild(facebook);
+      }
+      if(settings.twitter) {
+        var twitter = document.createElement('a');
+        twitter.className = "tw";
+        twitter.target = "_blank";
+        twitter.href = settings.twitter(settings);
+        twitter.innerHTML = "<span>Twitter</span>";
+        shareTool.appendChild(twitter);
+      }
+      if(settings.embed) {
+        var embed = document.createElement('a');
+        embed.className = "em";
+        embed.innerHTML = "<span>Embed</span>";
+        shareTool.appendChild(embed);
 
-            var embedDiv = document.createElement('div');
+        var embedDiv = document.createElement('div');
 
-            embedDiv.className = "embedtool";
-            embedDiv.innerHTML = "<textarea class=\"textarea\"></textarea>";
-            embedDiv.style.display = "none";
-            overlay.appendChild(embedDiv);
+        embedDiv.className = "embedtool";
+        embedDiv.innerHTML = "<textarea class=\"textarea\"></textarea>";
+        embedDiv.style.display = "none";
+        overlay.appendChild(embedDiv);
 
-            embed.onclick = function(e){
-                var textArea = embedDiv.children[0];
-                shareTool.style.display = "none";
-                embedDiv.style.display = "block";
-                textArea.appendChild(document.createTextNode(settings.embed(settings)));
-                textArea.select();
-            };
-        }
+        embed.onclick = function(e){
+          var textArea = embedDiv.children[0];
+          shareTool.style.display = "none";
+          embedDiv.style.display = "block";
+          textArea.appendChild(document.createTextNode(settings.embed(settings)));
+          textArea.select();
+        };
+      }
 
-        overlay.getElementsByClassName('close')[0].onclick = shareTools.teardown;
-        document.addEventListener('keyup', shareTools.keyUp, false);
-        player.el().appendChild(overlay);
+      overlay.onclick = shareTools.teardown;
+      document.addEventListener('keyup', shareTools.keyUp, false);
+      player.el().appendChild(overlay);
     };
 
     shareTools.keyUp = function(e) {
-        if (e.keyCode === 27) {
-            shareTools.teardown();
-        }
+      if (e.keyCode === 27) {
+        shareTools.teardown();
+      }
     };
 
-    shareTools.teardown = function() {
+    shareTools.teardown = function(e) {
+      var c_name = e.target.className;
+      if (c_name === "sharetools-overlay" || c_name === "close") {
         var overlays = player.el().getElementsByClassName('sharetools-overlay');
         if (overlays.length > 0) {
-            document.removeEventListener('keyup', shareTools.keyUp);
-            player.el().removeChild(overlays[0]);
+          document.removeEventListener('keyup', shareTools.keyUp);
+          player.el().removeChild(overlays[0]);
+          player.play();
         }
+      }
     };
-
   };
 
   vjs.plugin('sharetools', shareTools);
