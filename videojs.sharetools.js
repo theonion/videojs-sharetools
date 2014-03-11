@@ -83,7 +83,7 @@
         };
       }
 
-      overlay.onclick = shareTools.teardown;
+      overlay.onclick = shareTools.overlayClick;
       document.addEventListener('keyup', shareTools.keyUp, false);
       player.el().appendChild(overlay);
     };
@@ -94,15 +94,19 @@
       }
     };
 
-    shareTools.teardown = function(e) {
+    shareTools.overlayClick = function(e) {
       var c_name = e.target.className;
       if (c_name === "sharetools-overlay" || c_name === "close") {
-        var overlays = player.el().getElementsByClassName('sharetools-overlay');
-        if (overlays.length > 0) {
-          document.removeEventListener('keyup', shareTools.keyUp);
-          player.el().removeChild(overlays[0]);
-          player.play();
-        }
+        shareTools.teardown();
+      }
+    };
+
+    shareTools.teardown = function(e) {
+      var overlays = player.el().getElementsByClassName('sharetools-overlay');
+      if (overlays.length > 0) {
+        document.removeEventListener('keyup', shareTools.keyUp);
+        player.el().removeChild(overlays[0]);
+        player.play();
       }
     };
   };

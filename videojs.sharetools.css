@@ -34,6 +34,7 @@
     .sharetools-overlay a span { display: none }
 
     .sharetools-overlay a.close {
+        cursor: pointer;
         position: absolute;
         right: 10px;
         top: 10px; }
@@ -56,9 +57,9 @@
 
 		.sharetool > .em::before { background-position: -128px 0 }
 
-		.sharetool > .fb::before { background-position: 0 }
+        .sharetool > .em { cursor: pointer; }
 
-a:not([href]) { cursor: pointer; }
+		.sharetool > .fb::before { background-position: 0 }
 
 .embedtool {
     height: 120px;
