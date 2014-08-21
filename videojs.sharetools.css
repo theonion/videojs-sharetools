@@ -61,9 +61,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
         padding: 8px;
         margin-left: 20px;
         height: 45px; width: 45px;
-        -webkit-border-radius:  10px;
-        -moz-border-radius:     10px;
-        border-radius:          10px;
         -webkit-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.5);
         -moz-box-shadow:    0px 0px 3px 1px rgba(50, 50, 50, 0.5);
         box-shadow:         0px 0px 3px 1px rgba(50, 50, 50, 0.5); }
@@ -73,7 +70,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
             height: 45px;
             width: 45px; }
 
-        .sharetool > .text { color: #fff; font-size: 12px; line-height: 18px; padding-bottom: 5px; margin-bottom: 10px; border-bottom: 2px solid rgba(255,255,255,.8);    }
+        .sharetool > .text { color: #fff; font-size: 12px; line-height: 18px; margin-bottom: 10px; text-align: center; }
 
         .sharetool > .text + a { margin-left: 0; }
 
