@@ -12,8 +12,13 @@
 	top: 0; right: 0; bottom: 0; left: 0; }
 
 .sharetools-overlay {
-    background-color: #000;
-    background-color: rgba(0, 0, 0, 0.4);
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.4) 90%, rgba(0,0,0,0.4) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(50%,rgba(0,0,0,0)), color-stop(90%,rgba(0,0,0,0.4)), color-stop(100%,rgba(0,0,0,0.4)));
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,0.4) 90%,rgba(0,0,0,0.4) 100%);
+    background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,0.4) 90%,rgba(0,0,0,0.4) 100%);
+    background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,0.4) 90%,rgba(0,0,0,0.4) 100%);
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,0.4) 90%,rgba(0,0,0,0.4) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#66000000',GradientType=0 );
     bottom: 0;
     left: 0;
     position: absolute;
@@ -45,21 +50,44 @@
         height: 32px;
         width: 32px; }
 
-.sharetool { height: 64px; width: 232px; position: absolute; margin: auto; top: 0; right: 0; bottom: 0; left: 0; }
+.sharetool {
+    height: 65px; width: 225px; position: absolute; margin: auto; top: auto; right: 0; bottom: 0; left: 0; padding: 0 0 60px 0; }
 
-	.sharetool a { float: left; }
+	.sharetool a {
+        float: left;
+        padding: 8px;
+        margin-left: 20px;
+        height: 45px; width: 45px;
+        -webkit-border-radius:  10px;
+        -moz-border-radius:     10px;
+        border-radius:          10px; }
 
-		.sharetool > a::before { margin-left: 20px; }
+        .sharetool a::before {
+            background-size: auto 45px;
+            height: 45px;
+            width: 45px; }
 
-		.sharetool > a:first-child::before { margin-left: 0; }
+        .sharetool > a:first-child { margin-left: 0; }
 
-		.sharetool > .tw::before { background-position: -64px 0 }
+    		.sharetool > a:first-child::before { margin-left: 0; }
 
-		.sharetool > .em::before { background-position: -128px 0 }
+        .sharetool > .tw { background-color: #4099FF; }
 
-        .sharetool > .em { cursor: pointer; }
+            .sharetool > .tw:hover { background-color: #5AB3FF; }
 
-		.sharetool > .fb::before { background-position: 0 }
+    		.sharetool > .tw::before { background-position: -45px 0; }
+
+        .sharetool > .em { background-color: #CD0040; cursor: pointer; }
+
+            .sharetool > .em:hover { background-color: #E71A5A; }
+
+            .sharetool > .em::before { background-position: -90px 0; }
+
+        .sharetool > .fb { background-color: #3B5998; }
+
+            .sharetool > .fb:hover { background-color: #5573B2; }
+
+            .sharetool > .fb::before { background-position: 0; }
 
 .embedtool {
     height: 120px;
