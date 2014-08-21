@@ -12,13 +12,14 @@
 	top: 0; right: 0; bottom: 0; left: 0; }
 
 .sharetools-overlay {
-    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.4) 90%, rgba(0,0,0,0.4) 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(50%,rgba(0,0,0,0)), color-stop(90%,rgba(0,0,0,0.4)), color-stop(100%,rgba(0,0,0,0.4)));
-    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,0.4) 90%,rgba(0,0,0,0.4) 100%);
-    background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,0.4) 90%,rgba(0,0,0,0.4) 100%);
-    background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,0.4) 90%,rgba(0,0,0,0.4) 100%);
-    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,0.4) 90%,rgba(0,0,0,0.4) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#66000000',GradientType=0 );
+background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.5) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(15%,rgba(0,0,0,0)), color-stop(50%,rgba(0,0,0,0.5)), color-stop(100%,rgba(0,0,0,0.5)));
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 15%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.5) 100%);
+background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 15%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.5) 100%);
+background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 15%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.5) 100%);
+background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 15%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.5) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#80000000',GradientType=0 );
+
     bottom: 0;
     left: 0;
     position: absolute;
@@ -51,7 +52,9 @@
         width: 32px; }
 
 .sharetool {
-    height: 65px; width: 225px; position: absolute; margin: auto; top: auto; right: 0; bottom: 0; left: 0; padding: 0 0 60px 0; }
+    height: 100px; width: 223px; position: absolute; margin: auto; top: auto; right: 0; bottom: 0; left: 0; padding-bottom: 60px; }
+
+    .text { display: block; text-transform: uppercase; font-weight: bold; font-family: sans-serif; }
 
 	.sharetool a {
         float: left;
@@ -60,16 +63,21 @@
         height: 45px; width: 45px;
         -webkit-border-radius:  10px;
         -moz-border-radius:     10px;
-        border-radius:          10px; }
+        border-radius:          10px;
+        -webkit-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.5);
+        -moz-box-shadow:    0px 0px 3px 1px rgba(50, 50, 50, 0.5);
+        box-shadow:         0px 0px 3px 1px rgba(50, 50, 50, 0.5); }
 
         .sharetool a::before {
             background-size: auto 45px;
             height: 45px;
             width: 45px; }
 
-        .sharetool > a:first-child { margin-left: 0; }
+        .sharetool > .text { color: #fff; font-size: 12px; line-height: 18px; padding-bottom: 5px; margin-bottom: 10px; border-bottom: 2px solid rgba(255,255,255,.8);    }
 
-    		.sharetool > a:first-child::before { margin-left: 0; }
+        .sharetool > .text + a { margin-left: 0; }
+
+    		.sharetool > .text + a::before { margin-left: 0; }
 
         .sharetool > .tw { background-color: #4099FF; }
 

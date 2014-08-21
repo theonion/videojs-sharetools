@@ -42,7 +42,7 @@
       shareTools.open = true;
       var overlay = document.createElement("div");
       overlay.className = "sharetools-overlay";
-      overlay.innerHTML = "<div class=\"sharetool\"></div><a class=\"close\"></a>";
+      overlay.innerHTML = "<div class=\"sharetool\"><span class=\"text\">Share this video</span></div><a class=\"close\"></a>";
 
       var shareTool = overlay.getElementsByTagName("div")[0];
       if(settings.facebook) {
