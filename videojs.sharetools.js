@@ -36,18 +36,8 @@
     shareButton.open = false;
 
     if (settings.showOnPause) {
-      var seeking = false;
-
-      player.on('seeking', function () {
-        seeking = true;
-      });
-
-      player.on('seeked', function () {
-        seeking = false;
-      });
-
       player.on('pause', function() {
-        if (!seeking) {
+        if (!player.seeking() && !player.ended()) {
           shareTools.setup();
         }
       });
@@ -58,12 +48,19 @@
     });
 
     shareButton.onclick = function(e) {
-      player.pause();
-      shareTools.setup();
+      if (shareTools.open) {
+        shareTools.teardown();
+      } else {
+        shareTools.setup();
+      }
     };
 
     shareTools.setup = function() {
       shareTools.open = true;
+      if (!vid1.paused()) {
+        player.pause();
+      }
+
       var overlay = document.createElement("div");
       overlay.className = "sharetools-overlay";
       overlay.innerHTML = "<div class=\"sharetool\"><span class=\"text\">Share this video</span></div><a class=\"close\"></a>";
@@ -134,6 +131,7 @@
           player.play();
         }
       }
+      shareTools.open = false;
     };
   };
 
