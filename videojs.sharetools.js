@@ -36,9 +36,21 @@
     shareButton.open = false;
 
     if (settings.showOnPause) {
+      var seeking = false;
+
+      player.on('seeking', function () {
+        seeking = true;
+      });
+
+      player.on('seeked', function () {
+        seeking = false;
+      });
+
       player.on('pause', function() {
-        shareTools.setup();
-      })
+        if (!seeking) {
+          shareTools.setup();
+        }
+      });
     }
 
     player.on('play', function() {
@@ -97,7 +109,7 @@
 
       overlay.onclick = shareTools.overlayClick;
       document.addEventListener('keyup', shareTools.keyUp, false);
-      player.el().appendChild(overlay);
+      player.el().insertBefore(overlay, player.controlBar.el());
     };
 
     shareTools.keyUp = function(e) {
