@@ -37,7 +37,7 @@
 
     if (settings.showOnPause) {
       player.on('pause', function() {
-        if (!player.seeking() && !player.ended()) {
+        if (!player.seeking() && !player.ended() && !shareTools.open) {
           shareTools.setup();
         }
       });
@@ -57,7 +57,7 @@
 
     shareTools.setup = function() {
       shareTools.open = true;
-      if (!vid1.paused()) {
+      if (!player.paused()) {
         player.pause();
       }
 
@@ -117,17 +117,23 @@
 
     shareTools.overlayClick = function(e) {
       var c_name = e.target.className;
-      if (c_name === "sharetools-overlay" || c_name === "close") {
+      if (c_name === "sharetools-overlay") {
         shareTools.teardown();
+      }
+      if (c_name === "close") {
+        shareTools.teardown(false);
       }
     };
 
-    shareTools.teardown = function(e) {
+    shareTools.teardown = function(unpause) {
+      if (unpause === undefined) {
+        unpause = true;
+      }
       var overlays = player.el().getElementsByClassName('sharetools-overlay');
       if (overlays.length > 0) {
         document.removeEventListener('keyup', shareTools.keyUp);
         player.el().removeChild(overlays[0]);
-        if (player.paused()) {
+        if (player.paused() && unpause) {
           player.play();
         }
       }
