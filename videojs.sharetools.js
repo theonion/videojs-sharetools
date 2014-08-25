@@ -14,6 +14,7 @@
   },
 
   defaults = {
+    showOnPause: false,
     shareUrl: window.location,
     facebook: function(settings){
         return "https://www.facebook.com/sharer/sharer.php?u=" + settings.shareUrl;
@@ -33,12 +34,23 @@
     player.controlBar.el().appendChild(shareButton);
 
     shareButton.open = false;
+
+    if (settings.showOnPause) {
+      player.on('pause', function() {
+        shareTools.setup();
+      })
+    }
+
+    player.on('play', function() {
+      shareTools.teardown();
+    });
+
     shareButton.onclick = function(e) {
+      player.pause();
       shareTools.setup();
     };
 
     shareTools.setup = function() {
-      player.pause();
       shareTools.open = true;
       var overlay = document.createElement("div");
       overlay.className = "sharetools-overlay";
@@ -106,7 +118,9 @@
       if (overlays.length > 0) {
         document.removeEventListener('keyup', shareTools.keyUp);
         player.el().removeChild(overlays[0]);
-        player.play();
+        if (player.paused()) {
+          player.play();
+        }
       }
     };
   };
