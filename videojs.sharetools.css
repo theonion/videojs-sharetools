@@ -68,7 +68,7 @@
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box; }
 
-    .text { display: block; text-transform: uppercase; font-weight: bold; font-family: sans-serif; }
+    .sharetool .text { display: block; text-transform: uppercase; font-weight: bold; font-family: sans-serif; }
 
 	.sharetool a {
         float: left;
