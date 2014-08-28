@@ -7,10 +7,6 @@
     margin-left: 10px;
     text-transform: uppercase; }
 
-.vjs-default-skin .vjs-big-play-button {
-	margin: auto;
-	top: 0; right: 0; bottom: 0; left: 0; }
-
 .vjs-control-bar { z-index: 1; }
 
 .sharetools-overlay {
