@@ -57,9 +57,6 @@
 
     shareTools.setup = function() {
       shareTools.open = true;
-      if (!player.paused()) {
-        player.pause();
-      }
 
       var overlay = document.createElement("div");
       overlay.className = "sharetools-overlay";
