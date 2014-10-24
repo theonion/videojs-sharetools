@@ -114,25 +114,14 @@
 
     shareTools.overlayClick = function(e) {
       var c_name = e.target.className;
-      if (c_name === "sharetools-overlay") {
-        shareTools.teardown();
-      }
-      if (c_name === "close") {
-        shareTools.teardown(false);
-      }
+      shareTools.teardown();
     };
 
-    shareTools.teardown = function(unpause) {
-      if (unpause === undefined) {
-        unpause = true;
-      }
+    shareTools.teardown = function() {
       var overlays = player.el().getElementsByClassName('sharetools-overlay');
       if (overlays.length > 0) {
         document.removeEventListener('keyup', shareTools.keyUp);
         player.el().removeChild(overlays[0]);
-        if (player.paused() && unpause) {
-          player.play();
-        }
       }
       shareTools.open = false;
     };
