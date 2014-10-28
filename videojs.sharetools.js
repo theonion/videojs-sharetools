@@ -93,6 +93,7 @@
         overlay.appendChild(embedDiv);
 
         embed.onclick = function(e){
+          e.stopPropagation();
           var textArea = embedDiv.children[0];
           shareTool.style.display = "none";
           embedDiv.style.display = "block";
