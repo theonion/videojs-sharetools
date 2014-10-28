@@ -99,6 +99,7 @@
           embedDiv.style.display = "block";
           textArea.appendChild(document.createTextNode(settings.embed(settings)));
           textArea.select();
+          return false;
         };
       }
 
