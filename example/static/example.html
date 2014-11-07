@@ -54,6 +54,7 @@
     var vid1 = videojs('vid1');
     var vid2 = videojs('vid2');
 
+    vid1.muted(true);
     vid1.sharetools({
       showOnPause: true,
       embed: function(settings) {
@@ -61,6 +62,7 @@
       }
     });
 
+    vid2.muted(true);
     vid2.sharetools({
       showOnPause: true,
       embed: function(settings) {

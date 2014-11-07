@@ -27,6 +27,6 @@
     "example.html"
   ],
   "dependencies": {
-    "videojs": "~4.4.2"
+    "videojs": "~4.10.2"
   }
 }
