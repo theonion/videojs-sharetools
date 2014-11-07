@@ -30,7 +30,7 @@ plugins: {
 - `embed` a function that will get called with the `options` object passed to it.
 
 
-### Using the Example
+## Using the Example
 
 To run the testing platform:
 
@@ -40,3 +40,5 @@ $ cd example
 $ npm install
 $ node web.js
 ```
+
+A browser window will open up to the location of the testing platform.
