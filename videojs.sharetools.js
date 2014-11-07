@@ -105,7 +105,14 @@
           document.removeEventListener('keyup', this.keyUpEvent);
           player.el().removeChild(overlays[0]);
         }
+
         this.open = false;
+
+        // start player playing again
+        if (player.paused()) {
+          player.play();
+        }
+
       }
     };
   };
